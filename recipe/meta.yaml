@@ -10,17 +10,17 @@ source:
   sha256: 41392496ced1d8de441fbcfff7c31b3fc2767abaa350e25660bbcc8aa5c8a9ae
 
 build:
-  noarch: python
-  script: python -m pip install . -vv
+  skip: true  # [py<310]
   number: 0
+  script: python -m pip install . -vv
 
 requirements:
   host:
-    - python ${{ python_min }}.*
+    - python
     - pip
     - hatchling >=1.5
   run:
-    - python >=${{ python_min }}
+    - python
     - fastmcp >=3
     # TODO: remove once https://github.com/conda-forge/authlib-feedstock/pull/46 is merged
     - joserfc >=1.6
@@ -33,7 +33,7 @@ tests:
       pip_check: true
     requirements:
       run:
-        - python ${{ python_min }}.*
+        - python
 
 about:
   homepage: https://github.com/jupyter-ai-contrib/jupyter-server-mcp
