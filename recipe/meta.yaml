@@ -25,13 +25,18 @@ requirements:
     - jupyter_server >=1.6,<3
 
 test:
+  source_files:
+    - tests
   imports:
     - jupyter_server_mcp
   requires:
     - pip
+    - pytest >=7.0
+    - pytest-asyncio >=0.21.0
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -vv tests
 
 about:
   homepage: https://github.com/jupyter-ai-contrib/jupyter-server-mcp
