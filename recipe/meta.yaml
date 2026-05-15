@@ -1,9 +1,9 @@
-context:
-  version: "0.2.1"
+{% set name = "jupyter-server-mcp" %}
+{% set version = "0.2.1" %}
 
 package:
-  name: jupyter-server-mcp
-  version: ${{ version }}
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/j/jupyter-server-mcp/jupyter_server_mcp-${{ version }}.tar.gz
