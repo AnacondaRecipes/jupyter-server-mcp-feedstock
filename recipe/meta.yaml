@@ -24,14 +24,14 @@ requirements:
     - fastmcp >=3
     - jupyter_server >=1.6,<3
 
-tests:
-  - python:
-      imports:
-        - jupyter_server_mcp
-      pip_check: true
-    requirements:
-      run:
-        - python
+test:
+  imports:
+    - jupyter_server_mcp
+  requires:
+    - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   homepage: https://github.com/jupyter-ai-contrib/jupyter-server-mcp
